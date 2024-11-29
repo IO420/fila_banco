@@ -170,11 +170,16 @@ if (!canvas) {
       }
 
       // Sprite animation loop
-      setInterval(() => {
+      function animateSprite() {
         for (let circle of circles) {
-            circle.updateAnimation();
-          }
-      }, 100);
+          circle.updateAnimation();
+        }
+        requestAnimationFrame(animateSprite);
+      }
+      
+      // Llamada inicial
+      animateSprite();
+      
       
     };
   }
@@ -284,38 +289,6 @@ let mouse_move = function (e) {
   selected_circle.ypos = mousey;
   redraw();
 };
-
-function redraw() {
-  let context = canvas.getContext("2d");
-
-  // Limpiar el canvas
-  context.clearRect(0, 0, canvas.width, canvas.height);
-
-  // Dibujar los cuadrados
-  context.fillStyle = "red";
-  context.fillRect(redSquare.x, redSquare.y, redSquare.w, redSquare.h);
-
-  context.fillStyle = "green";
-  context.fillRect(greenSquare.x, greenSquare.y, greenSquare.w, greenSquare.h);
-
-  context.fillStyle = "black";
-  context.fillRect(blackScuare.x, blackScuare.y, blackScuare.w, blackScuare.h);
-
-  context.fillRect(
-    blackScuare2.x,
-    blackScuare2.y,
-    blackScuare2.w,
-    blackScuare2.h
-  );
-
-  context.fillStyle = "blue";
-  context.fillRect(blueScuare.x, blueScuare.y, blueScuare.w, blueScuare.h);
-
-  // Dibujar cada bola con su propio sprite
-  for (let circle of circles) {
-    circle.draw(context, sprite.width / 10, sprite.height / 8, 10); // Pasa columnas y tamaño del sprite
-  }
-}
 
 class Circle {
   constructor(xpos, ypos, radius, color, sprite) {
