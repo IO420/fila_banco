@@ -8,10 +8,10 @@ var window_height = window.innerHeight;
 var window_width = window.innerWidth;
 
 const redSquare = { x: window_width*.3, y: window_height*.2, w: 50, h: 50 };
-const greenSquare = { x: window_width*.6, y: window_height*.4, w: 200, h: 50 };
+const greenSquare = { x: window_width*.4, y: window_height*.4, w: 200, h: 50 };
 const blueScuare = { x: window_width*.9, y: window_height*.350, w: 50, h: 150 };
-const blackScuare = { x: window_width*.6, y: window_height*.400, w: 200, h: 5 };
-const blackScuare2 = { x: window_width*.6, y: window_height*.450, w: 200, h: 5 };
+const blackScuare = { x: window_width*.4, y: window_height*.400, w: 200, h: 5 };
+const blackScuare2 = { x: window_width*.4, y: window_height*.450, w: 200, h: 5 };
 
 if (!canvas) {
   console.log("Canvas element not found!");
@@ -179,7 +179,6 @@ if (!canvas) {
       
       // Llamada inicial
       animateSprite();
-      
       
     };
   }
